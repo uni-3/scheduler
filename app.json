@@ -1,0 +1,9 @@
+{
+    "name": "scheduler",
+    "description": "予定調整",
+    "logo": "",
+    "keywords": [
+        "node"
+    ],
+    "image": "heroku/nodejs"
+}

@@ -106,7 +106,18 @@ app.get(
     failureRedirect: "/login",
   }),
   (req, res) => {
-    res.redirect("/");
+    var loginFrom = req.cookies.loginFrom;
+
+    // loginFromが内部URLとしてセットされていたら
+    if (
+      loginFrom && !loginFrom.includes("http://") &&
+      !loginFrom.includes("https://")
+    ) {
+      res.clearCookie("loginFrom");
+      res.redirect(loginFrom);
+    } else {
+      res.redirect("/");
+    }
   },
 );
 
